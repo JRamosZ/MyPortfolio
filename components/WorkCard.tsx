@@ -25,7 +25,7 @@ export default function WorkCard(props: Props) {
         width={0}
         height={0}
         sizes="100vw"
-        style={{ width: "100%", height: "180px" }}
+        style={{ width: "100%", height: "auto" }}
       />
       <p>&#x1F5D3; {`${props.work.creationDate}`}</p>
       <div className="flex gap-3">

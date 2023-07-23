@@ -2,20 +2,23 @@ import Image from "next/image";
 import TechBlock from "@/components/TechBlock";
 import { technologies, works } from "@/public/data";
 import WorkCard from "@/components/WorkCard";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <>
-      <a href="">
-        <Image
-          className="fixed right-[-35px] top-[-40px]"
-          src="/jr_logo.png"
-          alt=""
-          width={200}
-          height={200}
-        />
-      </a>
       <main className="bg-zinc-900 text-white flex flex-col items-center px-16 gap-40 pb-10">
+        <button
+          onClick={(e) => {
+            window.scrollTo({
+              top: document.getElementById("presentation")?.offsetTop,
+              behavior: "smooth",
+            });
+          }}
+          className="fixed right-[-35px] top-[-40px]"
+        >
+          <Image src="/jr_logo.png" alt="" width={200} height={200} />
+        </button>
         <section
           id="presentation"
           className="h-screen flex flex-col justify-center items-center w-[60%]"
@@ -28,12 +31,20 @@ export default function Home() {
             })}
           </div>
           <div className="flex gap-4">
-            <a href="" className="border px-10 py-4">
+            <Link href={"/contact"} className="border px-10 py-4">
               Contact Me
-            </a>
-            <a href="" className="px-4 py-4 border">
+            </Link>
+            <button
+              className="px-4 py-4 border"
+              onClick={(e) => {
+                window.scrollTo({
+                  top: document.getElementById("MyWorks")?.offsetTop,
+                  behavior: "smooth",
+                });
+              }}
+            >
               Works ↓
-            </a>
+            </button>
           </div>
         </section>
         <section id="MyWorks" className="w-[100%]">
@@ -61,11 +72,14 @@ export default function Home() {
           </div>
         </section>
         <section id="Closure" className="w-[100%] text-right">
-          <h2 className="text-[80px]">liked</h2>
-          <h2 className="text-[80px]">what you just saw?</h2>
-          <a href="" className="border px-10 py-4 inline-block text-[30px]">
+          <h2 className="text-[80px]">Liked</h2>
+          <h2 className="text-[80px] mt-[-25px] mb-10">what you just saw?</h2>
+          <Link
+            href={"/contact"}
+            className="border px-10 py-4 inline-block text-[30px]"
+          >
             Contact Me
-          </a>
+          </Link>
         </section>
         <footer className="text-center">
           <h4>Jorge Ramos</h4>
